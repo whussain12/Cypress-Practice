@@ -1,23 +1,23 @@
-name: Cypress CI
+name: Cypress CI/CD
 
 on:
   push:
     branches:
-      - main  # Runs on every push to the `main` branch
+      - main
   pull_request:
     branches:
-      - main  # Runs for pull requests targeting `main`
+      - main
 
 jobs:
   cypress-tests:
     runs-on: ubuntu-latest
 
     steps:
-      # Step 1: Check out the repository code
+      # Step 1: Check out the repository
       - name: Checkout code
         uses: actions/checkout@v3
 
-      # Step 2: Set up Node.js environment
+      # Step 2: Set up Node.js
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
@@ -27,6 +27,17 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      # Step 4: Run Cypress tests
+      # Step 4: Start the application server
+      - name: Start server
+        run: npm start &
+        env:
+          CI: true # Ensures your app runs in CI mode (optional)
+
+      # Step 5: Wait for the server to start
+      - name: Wait for server to be ready
+        run: npx wait-on http://localhost:3000 # Replace with your app's URL
+
+      # Step 6: Run Cypress tests
       - name: Run Cypress tests
         run: npx cypress run
+
