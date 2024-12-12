@@ -10,7 +10,7 @@ it('demo trademark bridge', function () {
     cy.get('#MainContent_pn1').clear('8743');
     cy.get('#MainContent_pn1').type('8887960500');
     cy.get('#MainContent_txttr1').clear('j');
-    cy.get('#MainContent_txttr1').type('just for testing');
+    cy.get('#MainContent_txttr1').type('just for testing again and again');
     //cy.get('#MainContent_btnSubmit1').click();
     //cy.get('.common-title').click();
     //cy.get('.common-title').should('have.text', 'Thank You!');
