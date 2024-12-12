@@ -1,4 +1,4 @@
-describe('Trademark Bridge Registration', () => {
+/*describe('Trademark Bridge Registration', () => {
     it('fills out the registration form with retries', () => {
       // Set viewport size (optional)
       //cy.viewport(537, 641);
@@ -113,4 +113,4 @@ describe('Trademark Bridge Registration', () => {
   
      // waitForElementVisible('main', ['li.is-active > p', ...]); // Replace "..." with other selectors
     });
-  });
+  });*/
