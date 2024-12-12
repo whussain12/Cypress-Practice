@@ -38,6 +38,6 @@ jobs:
         run: npx wait-on http://localhost:3000 # Replace with your app's URL
 
       # Step 6: Run Cypress tests
-      - name: Run Cypress tests 
+      - name: Run Cypress tests  
         run: npx cypress run
 
