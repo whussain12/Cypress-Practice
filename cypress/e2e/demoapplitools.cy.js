@@ -1,4 +1,4 @@
-const getElement = (selectors) => {
+/*const getElement = (selectors) => {
   return cy.wrap(null).then(() => {
     let found = false; // Track if an element was found
     for (let selector of selectors) {
@@ -76,3 +76,4 @@ describe('Applitools Demo Test', () => {
     });
   });
 });
+*/

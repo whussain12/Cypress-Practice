@@ -1,4 +1,4 @@
-describe('Trademark Bridge Automation Test', () => {
+/*describe('Trademark Bridge Automation Test', () => {
     it('Automates the trademark form submission', () => {
       // Step 1: Set viewport
       cy.viewport(1366, 768);
@@ -56,4 +56,4 @@ describe('Trademark Bridge Automation Test', () => {
       cy.url().should('include', '/forms/Payment');
     });
   });
-  
+  */

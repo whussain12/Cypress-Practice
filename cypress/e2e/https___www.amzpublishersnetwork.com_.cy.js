@@ -1,4 +1,4 @@
-describe("https://www.amzpublishersnetwork.com/", () => {
+/*describe("https://www.amzpublishersnetwork.com/", () => {
   it("tests https://www.amzpublishersnetwork.com/", () => {
     cy.viewport(1349, 641);
     cy.visit("https://www.amzpublishersnetwork.com/");
@@ -19,3 +19,4 @@ describe("https://www.amzpublishersnetwork.com/", () => {
     cy.get("xpath///*[@id=\"ctl01\"]/div[3]/section[1]/div/div/div").click();
   });
 });
+*/

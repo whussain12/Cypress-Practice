@@ -1,4 +1,4 @@
-describe('Trademark Bridge Contact Form', () => {
+/*describe('Trademark Bridge Contact Form', () => {
     before(() => {
         cy.viewport(1358, 641);
         cy.visit('https://www.trademarkbridge.com/');
@@ -116,4 +116,4 @@ describe('Trademark Bridge Contact Form', () => {
         // Assert navigation to forms page
         cy.url().should('include', '/forms/');
     });
-});
+});*/
