@@ -1,8 +1,8 @@
 /* ==== Test Created with Cypress Studio ==== */
 it('demo trademark bridge', function () {
     /* ==== Generated with Cypress Studio ==== */
-     cy.visit('www.trademarkbridge.com');
-   // cy.visit('http://217.76.53.78:8111/');
+     //cy.visit('www.trademarkbridge.com');
+   cy.visit('http://217.76.53.78:8111/');
     cy.get('#MainContent_txtcn1').clear();
     cy.get('#MainContent_txtcn1').type('test lead home');
     cy.get('#MainContent_txtem1').clear();
@@ -47,5 +47,6 @@ it('demo trademark bridge', function () {
     cy.get(':nth-child(2) > .nav-link').click();
 
     // this is just for testing to validate if local code is pushed to git
+    //adding another line today 12/12
     /* ==== End Cypress Studio ==== */
 });
