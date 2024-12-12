@@ -1,8 +1,8 @@
 /* ==== Test Created with Cypress Studio ==== */
 it('demo trademark bridge', function () {
     /* ==== Generated with Cypress Studio ==== */
-     //cy.visit('www.trademarkbridge.com');
-   cy.visit('http://217.76.53.78:8111/');
+     cy.visit('www.trademarkbridge.com');
+   //cy.visit('http://217.76.53.78:8111/');
     cy.get('#MainContent_txtcn1').clear();
     cy.get('#MainContent_txtcn1').type('test lead home');
     cy.get('#MainContent_txtem1').clear();
