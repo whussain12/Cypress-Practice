@@ -7,11 +7,10 @@ module.exports = defineConfig({
       
     },
     watchForFileChanges: false,
-    experimentalStudio:true
-    {
+    experimentalStudio:true, 
   "baseUrl": "'http://217.76.53.78:8111", // Replace with your app's base URL
   "video": false // Disables video recording for faster CI runs (optional)
-}
+
 
   },
 });
