@@ -48,5 +48,6 @@ it('demo trademark bridge', function () {
 
     // this is just for testing to validate if local code is pushed to git
     //adding another line today 12/12
+    //adding other line to verify the trigger
     /* ==== End Cypress Studio ==== */
 });
