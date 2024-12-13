@@ -3,10 +3,10 @@ name: Cypress Test Automation
 on:
   push:
     branches:
-      - master # Run when commits are pushed to the master branch
+      - master
   pull_request:
     branches:
-      - master # Run when a pull request is made to the master branch
+      - master
   schedule:
     # Run periodically using cron syntax (e.g., every day at midnight UTC)
     - cron:  '0 */6 * * *'
@@ -14,7 +14,9 @@ on:
 jobs:
   cypress-tests:
     runs-on: windows-latest
-
+    strategy:
+      matrix:
+        browser: [chrome, edge, firefox] # Specify the browsers you want to test
     steps:
       # Checkout the repository
       - name: Checkout Repository
@@ -34,6 +36,8 @@ jobs:
       - name: Verify Cypress Installation
         run: npx cypress install
 
-      # Run Cypress tests
-      - name: Run Cypress Tests
-        run: npx cypress run
+      # Run Cypress tests in the specified browser
+      - name: Run Cypress Tests in ${{ matrix.browser }}
+        env:
+          CYPRESS_BROWSER: ${{ matrix.browser }} # Pass the browser to the Cypress CLI
+        run: npx cypress run --browser ${{ matrix.browser }}
