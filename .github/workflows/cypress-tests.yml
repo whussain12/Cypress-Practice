@@ -3,10 +3,13 @@ name: Cypress Test Automation
 on:
   push:
     branches:
-      - master
+      - master # Run when commits are pushed to the master branch
   pull_request:
     branches:
-      - master
+      - master # Run when a pull request is made to the master branch
+  schedule:
+    # Run periodically using cron syntax (e.g., every day at midnight UTC)
+    - cron:  '0 */6 * * *'
 
 jobs:
   cypress-tests:
