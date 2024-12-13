@@ -12,7 +12,7 @@ on:
 
 jobs:
   cypress-tests:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
 
 
     steps:
@@ -49,7 +49,8 @@ jobs:
 
       # Step 6: Run Cypress tests
       - name: Run Cypress tests
-        run: npx cypress run
+        run: npx cypress run --record --keybf6231d2-b12b-4d98-a65f-0187afad65ff
+
 
 
 
