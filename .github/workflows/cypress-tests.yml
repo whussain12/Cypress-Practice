@@ -1,57 +1,11 @@
-name: Cypress CI/CD
-
-
+name: Add Action
 on:
   push:
     branches:
-      - master
-  pull_request:
-    branches:
-      - master
-
-
+      - main
 jobs:
-  cypress-tests:
-    runs-on: windows-latest
-
-
+  Cypress-Test:
+    runs-on: ubuntu-latest
     steps:
-      # Step 1: Check out the repository
-      - name: Checkout code
-        uses: actions/checkout@v3
-
-
-      # Step 2: Set up Node.js
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '16' # Specify Node.js version
-
-
-      # Step 3: Install dependencies
-      - name: Install dependencies
-        run: npm install
-
-
-      # Step 4: Start the application server
-      - name: Start server
-        run: npm start &
-        env:
-          CI: true # Ensures your app runs in CI mode (optional)
-          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
-          # Creating a token https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token
-          FLOW: ${{ secrets.FLOW }}
-
-      # Step 5: Wait for the server to start
-      - name: Wait for server to be ready
-        run: npx wait-on https://www.trademarkbridge.com # Replace with your app's URL
-
-
-      # Step 6: Run Cypress tests
-      - name: Run Cypress tests
-        run: npx cypress run
-
-
-
-
-
+      - name: Checkout GitCode
+        uses: actions/checkout@v2
