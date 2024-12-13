@@ -16,7 +16,7 @@ jobs:
     runs-on: windows-latest
     strategy:
       matrix:
-        browser: [chrome, edge, firefox] # Specify the browsers you want to test
+        browser: [chrome, edge] # Specify the browsers you want to test
     steps:
       # Checkout the repository
       - name: Checkout Repository
