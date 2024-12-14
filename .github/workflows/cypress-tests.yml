@@ -40,4 +40,4 @@ jobs:
       - name: Run Cypress Tests in ${{ matrix.browser }}
         env:
           CYPRESS_BROWSER: ${{ matrix.browser }} # Pass the browser to the Cypress CLI
-        run: npx cypress run --browser ${{ matrix.browser }}
+        run: npx cypress run --browser ${{ matrix.browser }}  --spec "cypress\e2e\Recording 12_14_2024 at 10_05_36 PM trademark_bridge contact.cy.js"
