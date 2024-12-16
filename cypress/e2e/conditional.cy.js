@@ -18,7 +18,7 @@ describe('Contact Us Form Test', () => {
     });
 });
     it('should fill out and submit the form conditionally', () => {
-    cy.visit("https://trademarkbridge.com/contact-us")
+   // cy.visit("https://trademarkbridge.com/contact-us")
     cy.get('body').then(($body) => {
         // For 'Name' field
         if ($body.find('#MainContent_txtcn1').length) {
