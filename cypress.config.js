@@ -1,12 +1,9 @@
 const { defineConfig } = require("cypress");
 
 module.exports = defineConfig({
-  reporter: 'mochawesome',
-  reporterOptions: {
-    reportDir: 'cypress/reports',
-    overwrite: false,
-    html: false,
-    json: true,
+  env: {
+    test_url: "http://217.76.53.78:8111/contact-us",
+    prod_url: "https://www.trademarkbridge.com/contact-us"
   },
 
   e2e: {
