@@ -1,5 +1,5 @@
 describe('Contact Us Form Test', () => {
-    /*it('Visits the correct environment', () => {
+    it('Visits the correct environment', () => {
         const environment = Cypress.env('ENV'); // Set ENV via --env flag
         let url;
 
@@ -12,12 +12,12 @@ describe('Contact Us Form Test', () => {
         if (url) {
             cy.visit(url);
             cy.log(`Visiting: ${url}`);
-          } else {
+        } else {
             throw new Error('Environment not set correctly or URL not defined for the current environment');
-          }
-    });*/
+        }
+    });
 });
-it('should fill out and submit the form conditionally', () => {
+    it('should fill out and submit the form conditionally', () => {
     cy.visit("https://trademarkbridge.com/contact-us")
     cy.get('body').then(($body) => {
         // For 'Name' field
