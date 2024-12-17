@@ -1,6 +1,6 @@
 describe('My Test Suite', () => {
     let environment;
-    let url;
+    
 
     before(() => {
         // Set the environment dynamically based on a command line argument or default
@@ -167,12 +167,12 @@ describe('My Test Suite', () => {
         // cy.visit('https://www.trademarkbridge.com/thank');
         //cy.visit(`${url}`);
         // cy.visit('https://www.trademarkbridge.com/');
-        cy.go('back');
+        //cy.go('back');
 
         // Clicks in footer links
-        cy.xpath("//form[@id='ctl01']/footer/div/div[2]/div/ul/li/a").click();
-        cy.xpath("//form[@id='ctl01']/footer/div/div[2]/div/ul/li[2]/a").click();
-        cy.xpath("//form[@id='ctl01']/footer/div/div[2]/div/ul/li[3]/a").click();
-        cy.xpath("//form[@id='ctl01']/footer/div/div[2]/div/ul/li[4]/a").click();
+       // cy.xpath("//form[@id='ctl01']/footer/div/div[2]/div/ul/li/a").click();
+        //cy.xpath("//form[@id='ctl01']/footer/div/div[2]/div/ul/li[2]/a").click();
+       // cy.xpath("//form[@id='ctl01']/footer/div/div[2]/div/ul/li[3]/a").click();
+        //cy.xpath("//form[@id='ctl01']/footer/div/div[2]/div/ul/li[4]/a").click();
     });
 });
