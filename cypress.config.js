@@ -4,8 +4,8 @@ module.exports = defineConfig({
   video:true,
   
   env: {
-    test_url: "http://217.76.53.78:8111/contact-us",
-    prod_url: "https://www.trademarkbridge.com/contact-us"
+    test_url_trademark_bridge: "http://217.76.53.78:8111/contact-us",
+    prod_url_trademark_bridge: "https://www.trademarkbridge.com/contact-us"
   },
 
   e2e: {
