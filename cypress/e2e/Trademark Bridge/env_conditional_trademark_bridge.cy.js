@@ -1,5 +1,5 @@
-describe('Contact Us Form Test', () => {
-    it('Visits the correct environment and submits the form', () => {
+//describe('Contact Us Form Test', () => {
+    /*it('Visits the correct environment and submits the form', () => {
         const environment = Cypress.env('ENV'); // Set ENV via --env flag
         let url;
 
@@ -17,7 +17,27 @@ describe('Contact Us Form Test', () => {
         } else {
             throw new Error('Environment not set correctly or URL not defined for the current environment');
         }
-
+*/
+describe('My Test Suite', () => {
+    let environment;
+    let url;
+    before(() => {
+      // Set the environment dynamically based on a command line argument or default
+      environment = Cypress.env('ENV') || 'test'; // Default to 'test' if not set
+    });
+  
+    beforeEach(() => {
+      // Set the URL based on environment
+     url;
+      if (environment === 'test') {
+        url = Cypress.env('test_url_trademark_bridge');
+      } else if (environment === 'prod') {
+        url = Cypress.env('prod_url_trademark_bridge');
+      }
+      cy.visit(url); // Visit the environment URL before each test
+    });
+    it('Test Case 1', () => {
+        cy.visit(`${url}/contact-us`);
         // Fill out and submit the form
         cy.get('body').then(($body) => {
             // For 'Name' field
@@ -56,5 +76,5 @@ describe('Contact Us Form Test', () => {
             }
         });
     });
-});
 
+});
