@@ -1,3 +1,3 @@
 ECHO is on.
-cypress\videos
-cypress\screenshots
+cypress/videos/*
+cypress/screenshots/*
