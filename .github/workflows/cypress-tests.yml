@@ -17,6 +17,7 @@ jobs:
   cypress-tests:
     runs-on: windows-latest
     strategy:
+      fail-fast: false # Prevent early termination if a job fails
       matrix:
         browser: [chrome, edge] # Specify the browsers you want to test
     steps:
@@ -28,11 +29,11 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '22'
+          node-version: '18'
 
       # Install dependencies
       - name: Install Dependencies
-        run: npm install
+        run: npm ci
 
       # Verify Cypress binary and install if needed
       - name: Verify Cypress Installation
@@ -41,6 +42,6 @@ jobs:
       # Run Cypress tests in the specified browser
       - name: Run Cypress Tests in ${{ matrix.browser }}
         env:
-          CYPRESS_VIDEO: true
+          CYPRESS_VIDEO: false
           CYPRESS_BROWSER: ${{ matrix.browser }} # Pass the browser to the Cypress CLI
-        run: npx cypress run --browser ${{ matrix.browser }} --headed --spec "cypress/e2e/env_conditional_trademark_bridge.cy.js" --env ENV=prod
+        run: npx cypress run --browser ${{ matrix.browser }} --spec "cypress/e2e/env_conditional_trademark_bridge.cy.js" --env ENV=prod
