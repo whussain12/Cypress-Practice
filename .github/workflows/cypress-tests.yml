@@ -1,21 +1,29 @@
 name: Cypress Test Automation
 
 on:
-  workflow_dispatch: # Trigger manually
+  workflow_dispatch:
 
 jobs:
   cypress-tests:
     runs-on: windows-latest
     strategy:
-      fail-fast: false # Allow all tests to run even if one fails
+      fail-fast: false
       matrix:
-        browser: [chrome] # Define browsers for testing
+        browser: [chrome]
     steps:
-      # Checkout the repository
       - name: Checkout Repository
         uses: actions/checkout@v3
 
-      # Cache Node.js dependencies to speed up workflow
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      # Install dependencies FIRST - This is the key change!
+      - name: Install Dependencies
+        run: npm ci
+
+      # Cache Node.js modules AFTER installation
       - name: Cache Node Modules
         uses: actions/cache@v3
         with:
@@ -24,21 +32,18 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node-
 
-      # Set up Node.js environment
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
+      # Cache Cypress binary (This order is now correct)
+      - name: Cache Cypress binary
+        uses: actions/cache@v3
         with:
-          node-version: '18'
+          path: ~/.cache/Cypress
+          key: ${{ runner.os }}-cypress-${{ hashFiles('package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-cypress-
 
-      # Install dependencies using cached data if available
-      - name: Install Dependencies
-        run: npm ci
-
-      # Verify Cypress installation
       - name: Verify Cypress Installation
         run: npx cypress verify
 
-      # Run Cypress tests
       - name: Run Cypress Tests in ${{ matrix.browser }}
         env:
           CYPRESS_VIDEO: false
