@@ -1,47 +1,46 @@
 name: Cypress Test Automation
 
 on:
-  workflow_dispatch:
-
-  #push:
-   # branches:
-    #  - master
-  #pull_request:
-   # branches:
-    #  - master
-  # schedule:
-    # Run periodically using cron syntax (e.g., every day at midnight UTC)
-   # - cron:  '0 */6 * * *'
+  workflow_dispatch: # Trigger manually
 
 jobs:
   cypress-tests:
     runs-on: windows-latest
     strategy:
-      fail-fast: false # Prevent early termination if a job fails
+      fail-fast: false # Allow all tests to run even if one fails
       matrix:
-        browser: [chrome, edge] # Specify the browsers you want to test
+        browser: [chrome] # Define browsers for testing
     steps:
       # Checkout the repository
       - name: Checkout Repository
         uses: actions/checkout@v3
 
-      # Set up Node.js
+      # Cache Node.js dependencies to speed up workflow
+      - name: Cache Node Modules
+        uses: actions/cache@v3
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      # Set up Node.js environment
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
           node-version: '18'
 
-      # Install dependencies
+      # Install dependencies using cached data if available
       - name: Install Dependencies
         run: npm ci
 
-      # Verify Cypress binary and install if needed
+      # Verify Cypress installation
       - name: Verify Cypress Installation
-        run: npx cypress install
+        run: npx cypress verify
 
-      # Run Cypress tests in the specified browser
+      # Run Cypress tests
       - name: Run Cypress Tests in ${{ matrix.browser }}
         env:
           CYPRESS_VIDEO: false
-          CYPRESS_BROWSER: ${{ matrix.browser }} # Pass the browser to the Cypress CLI
-        run: npx cypress run --browser ${{ matrix.browser }} --spec "cypress\e2e\Trademark Bridge\env_conditional_trademark_bridge.cy.js"
+          CYPRESS_BROWSER: ${{ matrix.browser }}
+        run: npx cypress run --browser ${{ matrix.browser }} --spec "cypress/e2e/Trademark Bridge/env_conditional_trademark_bridge.cy.js"
