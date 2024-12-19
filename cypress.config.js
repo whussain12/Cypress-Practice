@@ -5,7 +5,10 @@ module.exports = defineConfig({
   
   env: {
     test_url_trademark_bridge: "http://217.76.53.78:8111/",
-    prod_url_trademark_bridge: "https://www.trademarkbridge.com/"
+    prod_url_trademark_bridge: "https://www.trademarkbridge.com/",
+    test_url_trademark_registrars: "http://217.76.53.78:8040/",
+    prod_url_trademark_registrars: "http://trademarkregistrars.com"
+    
   },
 
   e2e: {
