@@ -42,6 +42,12 @@ jobs:
       # Run Cypress tests in the specified browser
       - name: Run Cypress Tests in ${{ matrix.browser }}
         env:
-          CYPRESS_VIDEO: false
+          CYPRESS_VIDEO: true # Record video of the tests
           CYPRESS_BROWSER: ${{ matrix.browser }} # Pass the browser to the Cypress CLI
-        run: npx cypress run --browser ${{ matrix.browser }} --spec "cypress\e2e\Trademark Registrar\Test file\Start_the_process.cy.js" --env ENV=test
+        run: npx cypress run --browser ${{ matrix.browser }} --spec "cypress\e2e\Trademark Registrar\Test file\Start_the_process.cy.js" --env ENV=prod
+
+      - name: Upload Cypress Videos
+        uses: actions/upload-artifact@v3
+        with:
+          name: cypress-videos
+          path: cypress/videos 
