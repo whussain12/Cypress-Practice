@@ -2,7 +2,9 @@ class Home1 {
     constructor() {
       // Define locators as arrays to handle multiple selectors
       this.fullNameField = [
+        
         '#MainContent_txtcn',
+        'input[name="ctl00$MainContent$txtcn"]',
         'xpath///*[@id="MainContent_txtcn"]',
         'aria/Enter Your Full Name'
       ];
