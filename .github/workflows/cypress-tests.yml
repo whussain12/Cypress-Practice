@@ -44,4 +44,4 @@ jobs:
         env:
           CYPRESS_VIDEO: false
           CYPRESS_BROWSER: ${{ matrix.browser }} # Pass the browser to the Cypress CLI
-        run: npx cypress run --browser ${{ matrix.browser }} --spec "cypress\e2e\Trademark Registrar\Test file\Home.cy.js" --env ENV=prod
+        run: npx cypress run --browser ${{ matrix.browser }} --spec "cypress\e2e\Trademark Registrar\Test file\Start_the_process.cy.js" --env ENV=test
