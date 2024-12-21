@@ -5,14 +5,14 @@ describe('Trademark Form Automation', () => {
 
     beforeEach(() => {
         // Set the viewport and visit the application URL before each test
-       // starttheprocess.setViewport(); // Default viewport as specified in JSON
+        // starttheprocess.setViewport(); // Default viewport as specified in JSON
         starttheprocess.visit();
     });
 
-   /* it('should navigate to the homepage and start the process', () => {
-        // Verify navigation and start the process
-        starttheprocess.startProcess();
-    });*/
+    /* it('should navigate to the homepage and start the process', () => {
+         // Verify navigation and start the process
+         starttheprocess.startProcess();
+     });*/
 
     it('should fill the form and submit successfully', () => {
         // Start the process
@@ -26,25 +26,43 @@ describe('Trademark Form Automation', () => {
             'Test the form'                  // Protection Details
         );
 
-        // Submit the form
-        starttheprocess.submitForm();
+        // Submit the home form
+        starttheprocess.submitHomeForm();
         cy.url().then((url) => {
             if (url.includes('/thank')) {
-              // If redirected to /thank, verify the success message
-              starttheprocess.verifySuccessMessage('Thank You!');
+                // If redirected to /thank, verify the success message
+                starttheprocess.verifySuccessMessage('Thank You!');
             } else if (url.includes('/forms')) {
-              // If redirected to /forms, handle the forms page
-              starttheprocess.handleFormsPage();
+                // If redirected to /forms, handle the forms page
+                starttheprocess.handleFormsPage();   
+                starttheprocess.selectStandardPackage();
+                starttheprocess.validateFeesSection();
+                starttheprocess.selectTrademarkSearch();
+                starttheprocess.selectFederalStateSearch();
+                starttheprocess.inputAdditionalDetails();
+                starttheprocess.selectPackageCheckbox();
+                starttheprocess.validatePackageFee();
+                starttheprocess.submitContinueForm();
+                // After submitting the /forms page form, verify the redirection to /forms/Service
+              //  cy.url().should('include', '/forms/Service'); // not ready to execute
             } else {
-              // Throw an error if the redirection is unexpected
-              throw new Error(`Unexpected redirection: ${url}`);
+                // Throw an error if the redirection is unexpected
+                throw new Error(`Unexpected redirection: ${url}`);
             }
-          });
         });
-      });
+        /*starttheprocess.selectStandardPackage();
+        starttheprocess.validateFeesSection();
+        starttheprocess.selectTrademarkSearch();
+        starttheprocess.selectFederalStateSearch();
+        starttheprocess.inputAdditionalDetails();
+        starttheprocess.selectPackageCheckbox();
+        starttheprocess.validatePackageFee();
+        starttheprocess.submitContinueForm();*/
+    });
+});
 
-        // Verify the success message
-       // starttheprocess.verifySuccessMessage('Thank You!');
-       // starttheprocess.handleFormsPage();
-    //});
+// Verify the success message
+// starttheprocess.verifySuccessMessage('Thank You!');
+// starttheprocess.handleFormsPage();
+//});
 //});
