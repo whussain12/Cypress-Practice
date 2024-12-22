@@ -20,5 +20,9 @@ module.exports = defineConfig({
     watchForFileChanges: false,
     viewportWidth: 1366,
     viewportHeight: 768,
-  },
-});
+    pageLoadTimeout: 10000
+    }
+  });
+  
+  
+
