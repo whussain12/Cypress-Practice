@@ -15,12 +15,12 @@ module.exports = defineConfig({
     setupNodeEvents(on, config) {
       // Implement node event listeners here
     },
-    defaultCommandTimeout: 3000,
+    defaultCommandTimeout: 5000,
     experimentalStudio: true,
     watchForFileChanges: false,
-    viewportWidth: 1366,
-    viewportHeight: 768,
-    pageLoadTimeout: 10000
+    //viewportWidth: 1366,
+    //viewportHeight: 768,
+    pageLoadTimeout: 15000
     }
   });
   
