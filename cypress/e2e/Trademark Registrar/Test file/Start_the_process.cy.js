@@ -19,7 +19,7 @@ describe('Trademark Form Automation', () => {
         Cypress.on('uncaught:exception', (err, runnable) => {
             return false; // Prevent test failure
         });
-        cy.pause(); // Pause to inspect page state
+        //cy.pause(); // Pause to inspect page state
         // Start the process
         starttheprocess.startProcess();
 
