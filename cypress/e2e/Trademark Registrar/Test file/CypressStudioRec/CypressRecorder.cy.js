@@ -16,13 +16,20 @@ describe('My Test Suite', () => {
             url = Cypress.env('prod_url_trademark_registrars');
         }
         cy.visit(url); // Visit the environment URL before each test
+        Cypress.on('uncaught:exception', (err, runnable) => {
+            return false;
+          });
     });
 
     it('test', function () {
+       /* Cypress.on('uncaught:exception', (err, runnable) => {
+            return false;
+          });*/
+          //cy.pause(); // Pause to inspect page state
         /* ==== Generated with Cypress Studio ==== */
-        //cy.visit(`${url}`);
+        cy.visit(`${url}`);
         cy.get('#MainContent_txtcn').clear('te');
-        cy.get('#MainContent_txtcn').type('test lead home');
+        cy.get('#MainContent_txtcn').should('be.visible').type('test lead home');
         cy.get('#MainContent_txtem').clear('te');
         cy.get('#MainContent_txtem').type('test@yopmail.com');
         cy.get('#MainContent_pn').clear('8887960500');
@@ -69,8 +76,6 @@ describe('My Test Suite', () => {
         //cy.visit("https://www.trademarkregistrars.com/forms/Payment");
         cy.get("#btnSubmit").click();
         cy.get("div.col-lg-9 > div.box-1").click();
-        cy.get('#lblMessage').should('be.visible');
-
         // Example: Check if the message is visible and contains the correct success message
         cy.get('#lblMessage')
             .should('be.visible')

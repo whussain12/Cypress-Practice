@@ -54,19 +54,19 @@ export class StartTheProcess {
 
     // Click the "Start the process" button
     startProcess() {
-        cy.get(this.startProcessButton).click();
+        cy.get(this.startProcessButton).should('be.visible').click();
     }
 
     // Fill the form
     fillForm(fullName, email, phone, protectionDetails) {
-        cy.get(this.fullNameField).type(fullName);
-        cy.get(this.emailField).type(email);
-        cy.get(this.phoneField).type(phone);
-        cy.get(this.protectionField).type(protectionDetails);
+        cy.get(this.fullNameField).should('be.visible').type(fullName);
+        cy.get(this.emailField).should('be.visible').type(email);
+        cy.get(this.phoneField).should('be.visible').type(phone);
+        cy.get(this.protectionField).should('be.visible').type(protectionDetails);
     }
       // Submit the Home form
       submitHomeForm() {
-        cy.get(this.submitHomeButton).click();
+        cy.get(this.submitHomeButton).should('be.visible').click();
       }
     // Verify success message on the Thank You page
     verifySuccessMessage(expectedMessage = 'Thank You!') {
@@ -76,20 +76,20 @@ export class StartTheProcess {
     // Handle interactions on the /forms page
     handleFormsPage() {
         // Fill the "Enter Mark Here" field
-        cy.get(this.nameSloganField).type('Test Lead');
+        cy.get(this.nameSloganField).should('be.visible').type('Test Lead');
 
         // Select an industry from the dropdown
-        cy.get(this.industryDropdown).select('Construction and Repair Services');
+        cy.get(this.industryDropdown).should('be.visible').select('Construction and Repair Services');
 
         // Add a product
-        cy.get(this.productField).type('Clothes');
-        cy.get(this.addProductButton).click();
+        cy.get(this.productField).should('be.visible').type('Clothes');
+        cy.get(this.addProductButton).should('be.visible').click();
 
         // Fill the address field
-        cy.get(this.addressField).type('Testing Address');
+        cy.get(this.addressField).should('be.visible').type('Testing Address');
 
         // Submit the form on /forms page
-        cy.get(this.formsSubmitButton).click();
+        cy.get(this.formsSubmitButton).should('be.visible').click();
 
         // Verify redirection after submission
         cy.url().should('include', '/forms/Service');
@@ -98,7 +98,7 @@ export class StartTheProcess {
 
     //Handle interactions on the form/services page
     selectStandardPackage() {
-        cy.get(this.standardPackageRadio).click();
+        cy.get(this.standardPackageRadio).should('be.visible').click();
       }
       
       validateFeesSection() {
@@ -106,19 +106,19 @@ export class StartTheProcess {
       }
       
       selectTrademarkSearch() {
-        cy.get(this.searchCheckbox).click();
+        cy.get(this.searchCheckbox).should('be.visible').click();
       }
       
       selectFederalStateSearch() {
-        cy.get(this.federalStateRadio).click();
+        cy.get(this.federalStateRadio).should('be.visible').click();
       }
       
       inputAdditionalDetails() {
-        cy.get(this.additionalInput).click();
+        cy.get(this.additionalInput).should('be.visible').click();
       }
       
       selectPackageCheckbox() {
-        cy.get(this.packageCheckbox).click();
+        cy.get(this.packageCheckbox).should('be.visible').click();
       }
       
       validatePackageFee() {
