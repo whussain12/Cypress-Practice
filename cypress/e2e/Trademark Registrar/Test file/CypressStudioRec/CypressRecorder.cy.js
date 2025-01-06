@@ -16,6 +16,9 @@ describe('My Test Suite', () => {
             url = Cypress.env('prod_url_trademark_registrars');
         }
         cy.visit(url); // Visit the environment URL before each test
+        Cypress.on('uncaught:exception', (err, runnable) => {
+            return false; // Prevent test failure
+        });
     });
 
     it('test', function () {

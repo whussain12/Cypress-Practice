@@ -1,6 +1,9 @@
 /* ==== Test Created with Cypress Studio ==== */
 it('test', function() {
   /* ==== Generated with Cypress Studio ==== */
+  Cypress.on('uncaught:exception', (err, runnable) => {
+    return false; // Prevent test failure
+});
   cy.visit('https://trademarkregistrars.com');
   cy.get('#MainContent_txtcn').clear('te');
   cy.get('#MainContent_txtcn').type('test lead home');

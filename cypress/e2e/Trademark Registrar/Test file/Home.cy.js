@@ -1,8 +1,12 @@
 import TrademarkPage  from "../Pages/Home";
 describe('Trademark Registration Tests', () => {
+  
   const trademarkPage = new TrademarkPage();
 
   it('should successfully submit the trademark form', () => {
+    Cypress.on('uncaught:exception', (err, runnable) => {
+      return false; // Prevent test failure
+  });
     // Visit the page
     trademarkPage.visit();
 

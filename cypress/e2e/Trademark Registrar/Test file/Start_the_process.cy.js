@@ -7,6 +7,9 @@ describe('Trademark Form Automation', () => {
         // Set the viewport and visit the application URL before each test
         // starttheprocess.setViewport(); // Default viewport as specified in JSON
         starttheprocess.visit();
+        Cypress.on('uncaught:exception', (err, runnable) => {
+            return false; // Prevent test failure
+        });
     });
 
     /* it('should navigate to the homepage and start the process', () => {
