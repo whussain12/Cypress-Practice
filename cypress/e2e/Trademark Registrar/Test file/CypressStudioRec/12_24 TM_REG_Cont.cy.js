@@ -28,7 +28,11 @@ describe('My Test Suite', () => {
     cy.pause();
     //cy.visit("https://www.trademarkregistrars.com/");
     cy.get("#navbar > ul > li:nth-of-type(4) > a").click();
+<<<<<<< HEAD
     //cy.location("href").should("eq", "`${url}/contact-us/default`");
+=======
+    cy.location("href").should("eq", "`${url}/contact-us/default`");
+>>>>>>> 95f3f647f38bc80a4c2a422ccbfc5bbd495aadcf
     cy.get("#MainContent_txtcn").click();
     cy.get("#MainContent_txtcn").type("test lead home");
     cy.get("#MainContent_txtem").type("jester35@yopmail.com");
@@ -40,6 +44,7 @@ describe('My Test Suite', () => {
     cy.get("textarea").click();
     cy.get("textarea").type("just testing");
     cy.get("#MainContent_btnSubmit").click();
+<<<<<<< HEAD
     if (url.includes('/thank')) {
       // If redirected to /thank, verify the success message
       cy.location("href").should("eq", "`${url}/thank`");
@@ -47,5 +52,9 @@ describe('My Test Suite', () => {
    cy.location("href").should("eq", "`${url}/forms`");}
     //cy.get("h2").click();
   
+=======
+    cy.location("href").should("eq", "`${url}/thank`");
+    cy.get("h2").click();
+>>>>>>> 95f3f647f38bc80a4c2a422ccbfc5bbd495aadcf
   });
 });

@@ -1,6 +1,7 @@
 import Home1 from '../Pages/Home1';
 
 describe('Trademark Registrars Test Suite', () => {
+
   const home = new Home1();
 
   beforeEach(() => {
@@ -9,8 +10,14 @@ describe('Trademark Registrars Test Suite', () => {
 
   it('Fill out and submit the form', () => {
     Cypress.on('uncaught:exception', (err, runnable) => {
+<<<<<<< HEAD
       return false; // Prevent test failure
   });
+=======
+      return false;
+    });
+    cy.pause(); // Pause to inspect page state
+>>>>>>> 95f3f647f38bc80a4c2a422ccbfc5bbd495aadcf
     // Fill out the form fields
     home.fillFullName('Test Lead Home');
     home.fillEmail('tester34@yopmail.com');
@@ -21,6 +28,10 @@ describe('Trademark Registrars Test Suite', () => {
     home.clickSubmit();
 
     // Verify the success message
+<<<<<<< HEAD
     home.verifySuccessMessage('Dear Test Lead Home');
+=======
+    home.verifySuccessMessage('Thank You!');
+>>>>>>> 95f3f647f38bc80a4c2a422ccbfc5bbd495aadcf
   });
 });

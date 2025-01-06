@@ -31,9 +31,9 @@ class Home1 {
       ];
       this.successMessage = [
         'h5',
-        'xpath///*[@id="content"]/div/div/div[3]/h5',
-        'aria/Dear test lead home,',
-        'text/Dear test lead'
+        'xpath///*[@id="content"]/div/div/div[3]/h51',
+        'aria/Thank You!1,',
+        'text/Thank You!'
       ];
     }
   
