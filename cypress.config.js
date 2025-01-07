@@ -137,7 +137,7 @@ module.exports = defineConfig({
     prod_url_amz_publishers_networks: "https://www.amzpublishersnetwork.com",
 
 
-    //test_url_ipmasters_usa: "http://217.76.53.78:8091",
+    test_url_ipmasters_usa: "http://217.76.53.78:8091",
 
   
 
